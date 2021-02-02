@@ -12,11 +12,26 @@
 <body id="culture">
   <header>
     <nav class="container">
+
       <h1>LOGO</h1>
-      <a href="home.html">Home</a>
-      <a href="tourist.html">Tourist Attractions</a>
-      <a href="culture.html" class="active">Culture</a>
-      <a href="login.php">Login</a>
+      <a href="home.php">Home</a>
+      <a href="tourist.php">Tourist Attractions</a>
+      <a href="culture.php" class="active">Culture</a>
+      <?php
+      session_start();
+      if(!empty($_SESSION['login'])){
+        echo $_SESSION['login'];
+        if($_SESSION['login']=='admin'){
+          echo " <a href='admin.php'>後台</a>";    
+      }
+        echo " <a href='logout.php'>登出</a>";
+      }else{
+      ?>
+        <a href="login.php">Login</a>
+      <?php
+      }
+
+      ?>
     </nav>
   </header>
   <main>

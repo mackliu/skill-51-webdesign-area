@@ -132,3 +132,19 @@ img {
   position: absolute;
   bottom: 60px;
 }
+
+/*******************************admin.php**/
+#admin main .container{
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+}
+#admin main table{
+  border-collapse: collapse;
+  border:1px solid #999;
+}
+
+#admin main table td{
+  border:1px solid #aaa;
+  padding:5px 10px;
+}

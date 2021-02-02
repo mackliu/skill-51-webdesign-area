@@ -21,9 +21,17 @@ $pw=$_POST['pw'];
 $user=$pdo->query("select * from user where acc='$acc' && pw='$pw'")->fetch();
 
 if(!empty($user)){
+    session_start();
+    $_SESSION['login']=$acc;
     echo "<script>";
     echo "alert('登入成功');";
-    echo "location.href='home.html';";
+
+    //判斷是否是admin的使用者，導向不同的頁面
+    if($user['acc']=='admin'){
+        echo "location.href='admin.php';";
+    }else{
+        echo "location.href='home.php';";
+    }
     echo "</script>";  
 }else{
     echo "<script>";
